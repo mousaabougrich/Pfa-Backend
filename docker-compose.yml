@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: biochain_postgres
+    environment:
+      POSTGRES_USER: biochain_root
+      POSTGRES_PASSWORD: biochain-123
+      POSTGRES_DB: biochain_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - biochain_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U biochain_user -d biochain_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+    name: biochain_postgres_data
+
+networks:
+  biochain_network:
+    driver: bridge
