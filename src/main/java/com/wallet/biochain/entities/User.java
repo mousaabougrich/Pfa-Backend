@@ -1,5 +1,6 @@
 package com.wallet.biochain.entities;
 
+import com.wallet.biochain.enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,7 +34,8 @@ public class User {
 
     private String phoneNumber;
 
-    private Enum Role;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     private BigDecimal balance;
 

@@ -4,9 +4,11 @@ import com.wallet.biochain.dto.AuthRequest;
 import com.wallet.biochain.dto.AuthResponse;
 import com.wallet.biochain.dto.RefreshTokenRequest;
 import com.wallet.biochain.dto.RegisterRequest;
+import com.wallet.biochain.entities.RefreshToken;
 import com.wallet.biochain.entities.User;
 import com.wallet.biochain.enums.Role;
 
+import com.wallet.biochain.repositories.RefreshTokenRepository;
 import com.wallet.biochain.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
